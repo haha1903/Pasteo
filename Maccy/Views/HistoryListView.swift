@@ -24,15 +24,27 @@ struct HistoryListView: View {
 
   var body: some View {
     if pinTo == .top {
-      LazyVStack(spacing: 0) {
+      LazyVStack(spacing: 1) {
         ForEach(pinnedItems) { item in
           HistoryItemView(item: item)
         }
 
         if showPinsSeparator {
           Divider()
-            .padding(.horizontal, 10)
-            .padding(.vertical, 3)
+            .background(
+              LinearGradient(
+                colors: [
+                  Color.blue.opacity(0.3),
+                  Color.purple.opacity(0.2),
+                  Color.blue.opacity(0.3)
+                ],
+                startPoint: .leading,
+                endPoint: .trailing
+              )
+            )
+            .frame(height: 1.5)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
         }
       }
       .background {
@@ -47,9 +59,10 @@ struct HistoryListView: View {
 
     ScrollView {
       ScrollViewReader { proxy in
-        LazyVStack(spacing: 0) {
+        LazyVStack(spacing: 1) {
           ForEach(unpinnedItems) { item in
             HistoryItemView(item: item)
+              .transition(.opacity.combined(with: .scale(scale: 0.98)))
           }
         }
         .task(id: appState.scrollTarget) {
@@ -94,11 +107,23 @@ struct HistoryListView: View {
     }
 
     if pinTo == .bottom {
-      LazyVStack(spacing: 0) {
+      LazyVStack(spacing: 1) {
         if showPinsSeparator {
           Divider()
-            .padding(.horizontal, 10)
-            .padding(.vertical, 3)
+            .background(
+              LinearGradient(
+                colors: [
+                  Color.blue.opacity(0.3),
+                  Color.purple.opacity(0.2),
+                  Color.blue.opacity(0.3)
+                ],
+                startPoint: .leading,
+                endPoint: .trailing
+              )
+            )
+            .frame(height: 1.5)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
         }
 
         ForEach(pinnedItems) { item in

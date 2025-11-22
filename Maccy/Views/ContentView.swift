@@ -31,10 +31,10 @@ struct ContentView: View {
           FooterView(footer: appState.footer)
         }
       }
-      .animation(.default.speed(3), value: appState.history.items)
-      .animation(.easeInOut(duration: 0.2), value: appState.searchVisible)
-      .padding(.vertical, Popup.verticalPadding)
-      .padding(.horizontal, Popup.horizontalPadding)
+      .animation(.spring(response: 0.35, dampingFraction: 0.85), value: appState.history.items)
+      .animation(.easeInOut(duration: 0.25), value: appState.searchVisible)
+      .padding(.vertical, Popup.verticalPadding + 2)
+      .padding(.horizontal, Popup.horizontalPadding + 2)
       .onAppear {
         searchFocused = true
       }

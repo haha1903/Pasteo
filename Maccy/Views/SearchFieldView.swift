@@ -5,41 +5,72 @@ struct SearchFieldView: View {
   @Binding var query: String
 
   @Environment(AppState.self) private var appState
+  @State private var isFocused: Bool = false
 
   var body: some View {
     ZStack {
-      RoundedRectangle(cornerRadius: 5, style: .continuous)
-        .fill(Color.secondary)
-        .opacity(0.1)
-        .frame(height: 23)
+      // Brighter background with vibrant gradient and shadow
+      RoundedRectangle(cornerRadius: 8, style: .continuous)
+        .fill(
+          LinearGradient(
+            colors: [
+              Color.white.opacity(0.35),
+              Color.white.opacity(0.25)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+          )
+        )
+        .overlay(
+          RoundedRectangle(cornerRadius: 8, style: .continuous)
+            .stroke(
+              LinearGradient(
+                colors: [
+                  Color.white.opacity(isFocused ? 0.5 : 0.35),
+                  Color.blue.opacity(isFocused ? 0.2 : 0.0)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+              ),
+              lineWidth: 1.5
+            )
+        )
+        .shadow(color: Color.blue.opacity(isFocused ? 0.15 : 0.08), radius: 4, x: 0, y: 2)
+        .shadow(color: Color.black.opacity(0.08), radius: 1, x: 0, y: 1)
+        .frame(height: 28)
 
-      HStack {
+      HStack(spacing: 6) {
         Image(systemName: "magnifyingglass")
-          .frame(width: 11, height: 11)
-          .padding(.leading, 5)
-          .opacity(0.8)
+          .font(.system(size: 12, weight: .medium))
+          .foregroundStyle(.blue.opacity(0.8))
+          .padding(.leading, 10)
 
         TextField(placeholder, text: $query)
           .disableAutocorrection(true)
           .lineLimit(1)
           .textFieldStyle(.plain)
+          .font(.system(size: 13))
           .onSubmit {
             appState.select()
           }
 
         if !query.isEmpty {
           Button {
-            query = ""
+            withAnimation(.easeInOut(duration: 0.15)) {
+              query = ""
+            }
           } label: {
             Image(systemName: "xmark.circle.fill")
-              .frame(width: 11, height: 11)
-              .padding(.trailing, 5)
+              .font(.system(size: 12))
+              .foregroundStyle(.blue.opacity(0.7))
+              .padding(.trailing, 10)
           }
           .buttonStyle(PlainButtonStyle())
-          .opacity(query.isEmpty ? 0 : 0.9)
+          .transition(.scale.combined(with: .opacity))
         }
       }
     }
+    .animation(.easeInOut(duration: 0.2), value: query.isEmpty)
   }
 }
 

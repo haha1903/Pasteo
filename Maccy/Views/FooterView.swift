@@ -21,8 +21,20 @@ struct FooterView: View {
   var body: some View {
     VStack(spacing: 0) {
       Divider()
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
+        .background(
+          LinearGradient(
+            colors: [
+              Color.blue.opacity(0.3),
+              Color.purple.opacity(0.2),
+              Color.blue.opacity(0.3)
+            ],
+            startPoint: .leading,
+            endPoint: .trailing
+          )
+        )
+        .frame(height: 1.5)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
 
       ZStack {
         FooterItemView(item: footer.items[0])
@@ -31,21 +43,23 @@ struct FooterView: View {
           .opacity(clearAllOpacity)
       }
       .onChange(of: modifierFlags.flags) {
-        if clearAllModifiersPressed {
-          clearOpacity = 0
-          clearAllOpacity = 1
-          footer.items[0].isVisible = false
-          footer.items[1].isVisible = true
-          if appState.footer.selectedItem == footer.items[0] {
-            appState.selection = footer.items[1].id
-          }
-        } else {
-          clearOpacity = 1
-          clearAllOpacity = 0
-          footer.items[0].isVisible = true
-          footer.items[1].isVisible = false
-          if appState.footer.selectedItem == footer.items[1] {
-            appState.selection = footer.items[0].id
+        withAnimation(.easeInOut(duration: 0.2)) {
+          if clearAllModifiersPressed {
+            clearOpacity = 0
+            clearAllOpacity = 1
+            footer.items[0].isVisible = false
+            footer.items[1].isVisible = true
+            if appState.footer.selectedItem == footer.items[0] {
+              appState.selection = footer.items[1].id
+            }
+          } else {
+            clearOpacity = 1
+            clearAllOpacity = 0
+            footer.items[0].isVisible = true
+            footer.items[1].isVisible = false
+            if appState.footer.selectedItem == footer.items[1] {
+              appState.selection = footer.items[0].id
+            }
           }
         }
       }
