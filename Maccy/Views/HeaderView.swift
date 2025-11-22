@@ -13,7 +13,7 @@ struct HeaderView: View {
   var body: some View {
     HStack(spacing: 10) {
       if showTitle {
-        Text("Maccy")
+        Text("Pasteo")
           .font(.system(size: 13, weight: .semibold))
           .foregroundStyle(
             LinearGradient(
