@@ -72,7 +72,7 @@ https://github.com/haichang/Pasteo
 
 For questions about this privacy policy or Pasteo's privacy practices, please contact:
 
-- Email: [Your Email]
+- Email: changhai@me.com
 - GitHub: https://github.com/haichang/Pasteo
 
 ## Your Rights
