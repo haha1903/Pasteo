@@ -124,9 +124,9 @@ Host the PRIVACY_POLICY.md content on your website
 
 **Privacy Policy URL:** (Your GitHub Pages or website URL)
 
-**Support URL:** https://github.com/haichang/Pasteo
+**Support URL:** https://github.com/haha1903/Pasteo
 
-**Marketing URL:** https://github.com/haichang/Pasteo (optional)
+**Marketing URL:** https://github.com/haha1903/Pasteo (optional)
 
 ---
 

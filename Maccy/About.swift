@@ -12,7 +12,7 @@ class About {
 
     let links = NSMutableAttributedString(string: "GitHub",
                                          attributes: [NSAttributedString.Key.foregroundColor: NSColor.labelColor])
-    links.addAttribute(.link, value: "https://github.com/haichang/Pasteo", range: NSRange(location: 0, length: 6))
+    links.addAttribute(.link, value: "https://github.com/haha1903/Pasteo", range: NSRange(location: 0, length: 6))
 
     creditsText.append(links)
     creditsText.append(NSAttributedString(string: "\n\n"))

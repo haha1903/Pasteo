@@ -91,10 +91,10 @@ Welcome to Pasteo! 🎉
 clipboard, manager, paste, copy, productivity, utility, tool, history, snippets
 
 ## Support URL
-https://github.com/haichang/Pasteo
+https://github.com/haha1903/Pasteo
 
 ## Marketing URL
-https://github.com/haichang/Pasteo
+https://github.com/haha1903/Pasteo
 
 ## Privacy Policy URL
 (You'll need to create one - see notes below)

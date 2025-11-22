@@ -66,14 +66,14 @@ We may update this privacy policy from time to time. Changes will be posted on t
 ## Open Source
 
 Pasteo is based on open-source software. The source code may be reviewed at:
-https://github.com/haichang/Pasteo
+https://github.com/haha1903/Pasteo
 
 ## Contact
 
 For questions about this privacy policy or Pasteo's privacy practices, please contact:
 
 - Email: changhai@me.com
-- GitHub: https://github.com/haichang/Pasteo
+- GitHub: https://github.com/haha1903/Pasteo
 
 ## Your Rights
 
